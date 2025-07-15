@@ -2,3 +2,5 @@ CREATE DATABASE pruebatecnica;
 
 User: 3005971392
 Password: clave123
+
+El JWT se valida sin necesidad de almacenarlo, manteniendo la aplicación más segura y eficiente.
