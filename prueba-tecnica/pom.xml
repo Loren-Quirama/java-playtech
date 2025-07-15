@@ -48,14 +48,6 @@
             <version>3.5.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.zonky.test/embedded-postgres -->
-        <dependency>
-            <groupId>io.zonky.test</groupId>
-            <artifactId>embedded-postgres</artifactId>
-            <version>2.1.0</version>
-            <scope>test</scope>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -1,0 +1,10 @@
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/PruebaTecnicaApplication.java
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/security/JwtAuthFilter.java
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/security/JwtUtil.java
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/security/SecurityConfig.java
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/user/controller/UserController.java
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/user/dto/LoginRequest.java
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/user/entity/UserEntity.java
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/user/repository/UserRepository.java
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/user/service/UserService.java
+/media/playtech/discohdd/Platzi/spring/prueba-tecnica/src/main/java/com/useradministration/user/service/impl/UserServiceImpl.java
