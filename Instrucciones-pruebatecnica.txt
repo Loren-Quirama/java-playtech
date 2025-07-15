@@ -1,0 +1,4 @@
+CREATE DATABASE pruebatecnica;
+
+User: 3005971392
+Password: clave123
