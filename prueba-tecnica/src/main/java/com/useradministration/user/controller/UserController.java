@@ -1,12 +1,17 @@
 package com.useradministration.user.controller;
 
+import com.useradministration.security.JwtUtil;
+import com.useradministration.user.dto.LoginRequest;
 import com.useradministration.user.entity.UserEntity;
+import com.useradministration.user.repository.UserRepository;
 import com.useradministration.user.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -15,14 +20,30 @@ import java.util.Optional;
 public class UserController {
 
     private final UserService userService;
+    private final JwtUtil jwtUtil;
+    private final UserRepository userRepository;
 
     @PostMapping("/login")
-    public ResponseEntity<Object> login(@RequestBody UserEntity loginData) {
-        String phone = loginData.getMobilePhone();
-        String password = loginData.getPassword();
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        Optional<UserEntity> userOpt = userRepository.findByMobilePhone(request.getMobilePhone());
+        System.out.println("Buscando usuario con móvil: " + userOpt.isPresent());
 
-        UserEntity user = userService.loginOrCreate(phone, password);
-        return ResponseEntity.ok(user);
+        if (userOpt.isPresent()) {
+            UserEntity user = userOpt.get();
+
+            if (user.getPassword().equals(request.getPassword())) {
+                String token = jwtUtil.generateToken(user.getMobilePhone());
+
+                return ResponseEntity.ok(Map.of(
+                        "token", token,
+                        "user", user
+                ));
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Contraseña incorrecta");
+            }
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuario no encontrado");
     }
 
     @PostMapping("/createuser")
@@ -66,6 +87,4 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
-
-
 }
